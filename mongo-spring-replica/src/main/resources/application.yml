@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://192.168.254.211:28017,192.168.254.211:28018,192.168.254.211:28019/test?connect=replicaSet&slaveOk=true&replicaSet=rs0&readPreference=secondary

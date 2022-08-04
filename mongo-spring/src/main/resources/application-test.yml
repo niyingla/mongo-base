@@ -1,0 +1,16 @@
+systemLog:
+  destination: file
+  path: "/mongodb/db28017/logs/mongo.log"
+  logAppend: true
+storage:
+  dbPath: "/mongodb/db28017/data"
+  journal:
+    enabled: true
+processManagement:
+  fork: true
+  pidFilePath: "/mongodb/db28017/logs/mongod.pid"
+net:
+  bindIp: 0.0.0.0
+  port: 28017
+replication:
+  replSetName: rs0

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="OFF" monitorInterval="3600">
+
+    <Properties>
+        <Property name="projectName">mongodb-java</Property>
+        <Property name="rootLevel">INFO</Property>
+    </Properties>
+
+    <Appenders>
+        <!--两种strict模式都能识别-->
+        <Console name="console" follow="true">
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <logger name="org.mongodb" level="ERROR" additivity="true"/>
+        <Root level="${rootLevel}" >
+            <AppenderRef ref="console"/>
+        </Root>
+    </Loggers>
+</Configuration>
