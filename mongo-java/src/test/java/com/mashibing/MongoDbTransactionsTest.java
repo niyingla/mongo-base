@@ -41,8 +41,16 @@ public class MongoDbTransactionsTest {
         /* Step 2: 定义session选项. */
 
         TransactionOptions txnOptions = TransactionOptions.builder()
+                //读取主节点
                 .readPreference(ReadPreference.primary())
+                //优先读取本地
+                //available：读取所有可用的数据
+                //local： 读取所有可用的且属于当前分片的数据
+                //majority：读取在大多数节点上提交完成的数据
+                //snapshot：读取最近快照中的数据
                 .readConcern(ReadConcern.LOCAL)
+                //MAJORITY 写入时多数节点确认
+                //UNACKNOWLEDGED 写入时不确认
                 .writeConcern(WriteConcern.MAJORITY)
                 .build();
 
